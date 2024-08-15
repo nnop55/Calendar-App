@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
-import { uuidv4 } from 'src/app/shared/utils/uuid';
+import { uuidv4 } from 'src/app/utils/uuid';
 
 @Injectable({
   providedIn: 'root'

@@ -30,7 +30,6 @@ export class AppointmentDialogComponent implements OnInit, OnDestroy {
   }
 
   getDef() {
-    console.log(this.data)
     this.appointmentService.getAppointmentByDate(
       this.data.dayI,
       this.data.hourI

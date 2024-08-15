@@ -26,16 +26,12 @@ export class CalendarComponent implements OnInit {
   }
 
   onCellClick(dayI: number, hourI: number) {
-    const dialogRef = this.dialog.open(AppointmentDialogComponent, {
+    this.dialog.open(AppointmentDialogComponent, {
       data: {
         dayI,
         hourI
       },
       width: '350px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 
