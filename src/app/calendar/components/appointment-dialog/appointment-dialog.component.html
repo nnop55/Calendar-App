@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Add appointment</h2>
+<mat-dialog-content class="mat-typography">
+    <form (ngSubmit)="createOrEdit(appointmentForm)" [formGroup]="appointmentForm">
+        <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title">
+        </mat-form-field>
+
+        
+        <div class="sides">
+            <div class="left" [class.hidden]="!defaultData"><mat-icon (click)="delete()">delete</mat-icon></div>
+            <div class="right">
+                <button mat-button mat-dialog-close type="button">Cancel</button>
+                <button mat-button cdkFocusInitial>Save</button>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+

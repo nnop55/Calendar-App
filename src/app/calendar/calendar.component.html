@@ -1,0 +1,37 @@
+<section>
+    <div class="calendar-table-container">
+        <table class="calendar-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th *ngFor="let day of calendar.days">{{ day.value }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let hour of calendar.hours; let hourIndex = index">
+                <td class="hour-cell">{{ hour.value }}</td>
+                <td
+                  *ngFor="let day of calendar.days; let dayIndex = index"
+                  class="calendar-cell"
+                  (click)="onCellClick(dayIndex, hourIndex)"
+                  cdkDrop (cdkDropListDropped)="drop($event)"
+                  [attr.dayIndex]="dayIndex"
+                  [attr.hourIndex]="hourIndex"
+                  cdkDropList
+                >
+                  <ng-container *ngFor="let item of appointments$ | async">
+                    <p
+                      *ngIf="dayIndex === item.dayI && hourIndex === item.hourI"
+                      cdkDrag
+                      [cdkDragData]="item"
+                    >
+                      {{ item.title }}
+                    </p>
+                  </ng-container>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+    </div>
+</section>
